@@ -1,7 +1,3 @@
-'''
-Training script for CIFAR-10/100
-Copyright (c) Wei YANG, 2017
-'''
 from __future__ import print_function
 
 import argparse
@@ -59,7 +55,7 @@ parser.add_argument('-c', '--checkpoint', default='checkpoint/1011/', type=str, 
                     help='path to save checkpoint (default: checkpoint)')
 #parser.add_argument('--resume', default='/home/foto1/workspace/zuoxin/face_landmark/checkpoint/0918/facelandmark_squeezenet_128_55.pth.tar', type=str, metavar='PATH',
 #                    help='path to latest checkpoint (default: none)')
-parser.add_argument('--resume', default='checkpoint/1011/facelandmark_squeezenet_64_67.pth.tar', type=str, metavar='PATH',
+parser.add_argument('--resume', default='', type=str, metavar='PATH',
                     help='path to latest checkpoint (default: none)')
 # Architecture
 parser.add_argument('--depth', type=int, default=104, help='Model depth.')
@@ -151,7 +147,7 @@ def main():
 
     # Resume
     title = 'facelandmark_squeezenet_64'
-    if True:
+    if args.resume:
         # Load checkpoint.
         print('==> Resuming from checkpoint..')
         assert os.path.isfile(args.resume), 'Error: no checkpoint directory found!'
